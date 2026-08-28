@@ -17,10 +17,17 @@
     :root {
       --text: #242424;
       --muted: #666666;
+
+      /* Main dark navy */
       --navy: #0b2d52;
+
+      /* Brighter royal blue for section subheadings */
+      --royal-blue: #2457a6;
+
       --action: #cf6666;
       --border: #e7e7e7;
-      --page-width: 900px;
+
+      --page-width: 980px;
     }
 
     * {
@@ -122,7 +129,7 @@
     .subheading {
       margin: 48px 0 27px;
 
-      color: var(--navy);
+      color: var(--royal-blue);
       font-size: 1.3rem;
       line-height: 1.3;
       font-weight: 600;
@@ -139,13 +146,19 @@
 
     .about-grid {
       display: grid;
-      grid-template-columns: 220px 1fr;
-      gap: 70px;
+
+      /*
+         Wider first column so the name does not wrap.
+         The photograph itself remains 220px.
+      */
+      grid-template-columns: 260px 1fr;
+
+      gap: 58px;
       align-items: start;
     }
 
     .profile-column {
-      width: 220px;
+      width: 260px;
     }
 
     .headshot {
@@ -163,9 +176,15 @@
     .profile-name {
       margin: 18px 0 5px;
 
-      font-size: 1.42rem;
+      font-size: 1.35rem;
       line-height: 1.25;
       font-weight: 600;
+
+      /*
+         Prevents Munro-Clark being pushed
+         onto a second line.
+      */
+      white-space: nowrap;
     }
 
     .cv-link {
@@ -393,7 +412,8 @@
       }
 
       .profile-name {
-        font-size: 1.35rem;
+        font-size: 1.3rem;
+        white-space: normal;
       }
 
       .bio {
@@ -598,8 +618,6 @@
       </div>
 
 
-      <!-- JOB MARKET PAPER -->
-
       <article class="paper">
 
         <div class="paper-title">
@@ -635,8 +653,6 @@
       </article>
 
 
-      <!-- COORDINATION PAPER -->
-
       <article class="paper">
 
         <div class="paper-title">
@@ -651,8 +667,6 @@
 
       </article>
 
-
-      <!-- PURPOSE RELATEDNESS -->
 
       <article class="paper">
 
