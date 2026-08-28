@@ -1,35 +1,753 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Harrison Munro Clark</title>
+  <title>Harrison Munro-Clark</title>
+
+  <meta
+    name="description"
+    content="Harrison Munro-Clark is a PhD Candidate in Strategic Management at HEC Paris."
+  >
 
   <style>
+    :root {
+      --text: #202124;
+      --muted: #686868;
+      --light: #eeeeee;
+      --link: #24558a;
+      --max-width: 980px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      max-width: 760px;
-      margin: 80px auto;
-      padding: 0 24px;
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.6;
-      color: #222;
+      margin: 0;
+      color: var(--text);
+      background: #ffffff;
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        "Helvetica Neue",
+        Arial,
+        sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* --------------------------------------------------
+       NAVIGATION
+    -------------------------------------------------- */
+
+    header {
+      border-bottom: 1px solid var(--light);
+      background: rgba(255, 255, 255, 0.97);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav {
+      width: min(var(--max-width), calc(100% - 40px));
+      margin: 0 auto;
+      min-height: 68px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .nav-name {
+      color: var(--text);
+      font-weight: 650;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      color: var(--text);
+      font-size: 0.96rem;
+    }
+
+    /* --------------------------------------------------
+       GENERAL LAYOUT
+    -------------------------------------------------- */
+
+    main {
+      width: min(var(--max-width), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    section {
+      padding: 76px 0;
+      border-bottom: 1px solid var(--light);
+      scroll-margin-top: 60px;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
     }
 
     h1 {
-      margin-bottom: 8px;
-      font-size: 2.5rem;
+      margin-bottom: 10px;
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      line-height: 1.08;
+      letter-spacing: -0.035em;
+      font-weight: 650;
     }
 
-    p {
-      font-size: 1.1rem;
+    h2 {
+      margin-bottom: 42px;
+      font-size: 1.65rem;
+      letter-spacing: -0.02em;
+      font-weight: 650;
+    }
+
+    h3 {
+      margin-bottom: 5px;
+      font-size: 1.07rem;
+      line-height: 1.45;
+      font-weight: 650;
+    }
+
+    h4 {
+      margin: 48px 0 24px;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--muted);
+      font-weight: 650;
+    }
+
+    /* --------------------------------------------------
+       ABOUT
+    -------------------------------------------------- */
+
+    .about {
+      max-width: 800px;
+      padding-top: 94px;
+    }
+
+    .position {
+      margin-bottom: 6px;
+      color: var(--muted);
+      font-size: 1.13rem;
+    }
+
+    .affiliations {
+      margin-bottom: 30px;
+      color: var(--muted);
+    }
+
+    .job-market {
+      display: inline-block;
+      margin-bottom: 30px;
+      padding: 6px 10px;
+      border: 1px solid #d7d7d7;
+      border-radius: 3px;
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+
+    .bio {
+      max-width: 730px;
+      font-size: 1.08rem;
+    }
+
+    .profile-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .profile-links a {
+      font-weight: 600;
+    }
+
+    /* --------------------------------------------------
+       RESEARCH
+    -------------------------------------------------- */
+
+    .paper {
+      max-width: 830px;
+      margin-bottom: 34px;
+    }
+
+    .paper:last-child {
+      margin-bottom: 0;
+    }
+
+    .paper-meta {
+      margin: 4px 0 8px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .paper-note {
+      margin: 6px 0 8px;
+      font-size: 0.94rem;
+      font-style: italic;
+    }
+
+    .paper-links {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0;
+      margin-top: 7px;
+      font-size: 0.94rem;
+    }
+
+    .paper-links > *:not(:last-child)::after {
+      content: " · ";
+      color: #aaa;
+      margin: 0 7px;
+    }
+
+    /* Expandable abstract */
+
+    details.abstract {
+      display: inline;
+    }
+
+    details.abstract summary {
+      display: inline;
+      color: var(--link);
+      cursor: pointer;
+      list-style: none;
+    }
+
+    details.abstract summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details.abstract summary:hover {
+      text-decoration: underline;
+    }
+
+    details.abstract[open] {
+      display: block;
+      width: 100%;
+      margin-top: 14px;
+    }
+
+    details.abstract[open] summary {
+      display: inline;
+    }
+
+    .abstract-text {
+      max-width: 800px;
+      margin-top: 14px;
+      padding-left: 18px;
+      border-left: 2px solid #ddd;
+      color: #444;
+      font-size: 0.96rem;
+      line-height: 1.7;
+    }
+
+    /* --------------------------------------------------
+       TEACHING
+    -------------------------------------------------- */
+
+    .teaching-item {
+      margin-bottom: 25px;
+    }
+
+    .teaching-item p {
+      margin-bottom: 3px;
+    }
+
+    .small {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    /* --------------------------------------------------
+       FOOTER
+    -------------------------------------------------- */
+
+    footer {
+      width: min(var(--max-width), calc(100% - 40px));
+      margin: 0 auto;
+      padding: 30px 0 50px;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    /* --------------------------------------------------
+       MOBILE
+    -------------------------------------------------- */
+
+    @media (max-width: 650px) {
+      nav {
+        min-height: 62px;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+        padding: 14px 0;
+      }
+
+      .nav-links {
+        gap: 18px;
+      }
+
+      section {
+        padding: 54px 0;
+      }
+
+      .about {
+        padding-top: 64px;
+      }
+
+      h2 {
+        margin-bottom: 34px;
+      }
     }
   </style>
 </head>
 
-<body>
-  <h1>Harrison Munro Clark</h1>
 
-  <p>Academic website under construction.</p>
+<body>
+
+  <!-- ==================================================
+       NAVIGATION
+  =================================================== -->
+
+  <header>
+    <nav>
+      <a class="nav-name" href="#about">Harrison Munro-Clark</a>
+
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#teaching">Teaching</a>
+      </div>
+    </nav>
+  </header>
+
+
+  <main>
+
+    <!-- ==================================================
+         ABOUT
+    =================================================== -->
+
+    <section id="about" class="about">
+
+      <h1>Harrison Munro-Clark</h1>
+
+      <p class="position">
+        PhD Candidate in Strategic Management, HEC Paris
+      </p>
+
+      <p class="affiliations">
+        Strategy and Business Policy · Purpose Center · S&amp;O Institute
+      </p>
+
+      <div class="job-market">
+        2026–27 Academic Job Market
+      </div>
+
+      <div class="bio">
+
+        <p>
+          I am a PhD candidate in Strategic Management at HEC Paris
+          and am on the 2026–27 academic job market.
+        </p>
+
+        <p>
+          My research focuses on corporate strategy and the managerial
+          theory of the firm, particularly corporate parenting and scope,
+          multibusiness firms, corporate purpose, and multi-objective
+          organisations.
+        </p>
+
+      </div>
+
+      <div class="profile-links">
+        <a href="cv.pdf">CV</a>
+
+        <a href="mailto:harrison.munro-clark@hec.edu">
+          Email
+        </a>
+      </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         RESEARCH
+    =================================================== -->
+
+    <section id="research">
+
+      <h2>Research</h2>
+
+
+      <!-- PUBLISHED PAPERS -->
+
+      <h4>Published Papers</h4>
+
+      <article class="paper">
+
+        <h3>
+          Common Purpose Advantage:
+          Reviving a Managerial Theory of the Firm?
+        </h3>
+
+        <p class="paper-meta">
+          Rodolphe Durand and Harrison John Munro-Clark
+        </p>
+
+        <p class="paper-meta">
+          <em>Strategic Management Journal</em>,
+          47(2), 583–615, 2026
+        </p>
+
+        <p class="paper-note">
+          Authors contributed equally; names listed alphabetically.
+        </p>
+
+        <div class="paper-links">
+
+          <a
+            href="https://doi.org/10.1002/smj.70008"
+            target="_blank"
+            rel="noopener"
+          >
+            Paper
+          </a>
+
+          <a
+            href="https://www.ft.com/content/b4344217-6a89-4fd4-bf9b-3e06f15f6707"
+            target="_blank"
+            rel="noopener"
+          >
+            Financial Times
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <!-- WORKING PAPERS -->
+
+      <h4>Working Papers</h4>
+
+
+      <article class="paper">
+
+        <h3>
+          Does the Corporate Parent Matter, Really?
+          Evidence from U.S. Banking
+        </h3>
+
+        <p class="paper-meta">
+          Job Market Paper · Dissertation Chapter 3
+        </p>
+
+        <div class="paper-links">
+
+          <details class="abstract">
+            <summary>Abstract</summary>
+
+            <div class="abstract-text">
+              Does a small corporate effect indicate that parents differ
+              little in the value they add to their subsidiaries? The
+              corporate effect captures differences in subsidiary
+              performance across parents, but those differences have two
+              possible sources: variation in the value parents add and
+              variation in the persistent performance of the subsidiaries
+              they own. I distinguish these two sources by estimating a
+              movers model on U.S. banking data from 1971 to 1998.
+              Because state and federal laws often barred a parent from
+              merging an acquired bank into its other banks, the same bank
+              can be observed under different parents during this period.
+
+              <br><br>
+
+              I find that parents differ substantially in the value they
+              add and in the persistent performance of the banks they own.
+              Parents that add more value systematically acquire banks with
+              lower persistent performance. The two sources therefore
+              offset one another, reducing observed performance differences
+              across parents. In changes of parent that were planned while
+              still legally blocked, bank profitability begins moving
+              toward that of the incoming parent's other banks only after
+              the parent gains control.
+
+              <br><br>
+
+              I theorize that parents add value by absorbing subsidiaries'
+              recurring administrative work, freeing their scarce
+              managerial services for expansion. To the extent that parents
+              that add more value take on subsidiaries with lower persistent
+              performance, the corporate effect understates how much parents
+              differ in the value they add. This paper recasts the
+              long-running debate over the magnitude of the corporate effect
+              by shifting attention to the processes that generate it, and
+              contributes to renewed interest in the corporate parent as a
+              central actor in corporate strategy.
+            </div>
+
+          </details>
+
+        </div>
+
+      </article>
+
+
+      <article class="paper">
+
+        <h3>
+          Coordination, Corporate Parenting, and Adaptation
+          in Multibusiness Firms
+        </h3>
+
+        <p class="paper-meta">
+          Dissertation Chapter 2
+        </p>
+
+        <p class="paper-note">
+          Nominated for the 2026 Strategic Management Society
+          Best PhD Student Paper Award.
+        </p>
+
+      </article>
+
+
+      <article class="paper">
+
+        <h3>Purpose Relatedness</h3>
+
+        <p class="paper-note">
+          Winner of the 2025 Best PhD Student Paper Award,
+          Corporate Strategy Interest Group,
+          Strategic Management Society.
+        </p>
+
+      </article>
+
+
+      <!-- WORKS IN PROGRESS -->
+
+      <h4>Works in Progress</h4>
+
+      <article class="paper">
+
+        <h3>
+          Shared Choices, Competing Objectives:
+          A Choice Structure Theory of the Profit–Impact
+          Tradeoff in Hybrid Organisations
+        </h3>
+
+        <p class="paper-meta">
+          With Tyler Wry
+        </p>
+
+      </article>
+
+    </section>
+
+
+    <!-- ==================================================
+         TEACHING
+    =================================================== -->
+
+    <section id="teaching">
+
+      <h2>Teaching</h2>
+
+
+      <h4>Teaching Interests</h4>
+
+      <p>
+        Corporate strategy · Business strategy · Strategic management ·
+        Strategy and society
+      </p>
+
+
+      <h4>Teaching Experience</h4>
+
+      <div class="teaching-item">
+        <h3>Strategy</h3>
+
+        <p>
+          Sole Instructor, HEC Paris
+        </p>
+
+        <p class="small">
+          Master in Management · Spring and Summer 2026
+        </p>
+
+        <p class="small">
+          Course evaluation: 4.55/5.00;
+          teaching quality: 4.75/5.00
+        </p>
+      </div>
+
+
+      <div class="teaching-item">
+        <h3>Strategy for Impact Certificate</h3>
+
+        <p>
+          Guest Lecturer, HEC Paris
+        </p>
+
+        <p class="small">
+          Summer 2024 · Student evaluation: 4.39/5.00
+        </p>
+      </div>
+
+
+      <div class="teaching-item">
+        <h3>Summer School on Computational Organisation Science</h3>
+
+        <p>
+          Teaching Assistant, TOM Society
+        </p>
+
+        <p class="small">
+          2025
+        </p>
+      </div>
+
+
+      <div class="teaching-item">
+        <h3>Values-Based Strategies</h3>
+
+        <p>
+          Teaching Assistant, HEC Paris
+        </p>
+
+        <p class="small">
+          Master in Strategic Management · 2022–2023
+        </p>
+      </div>
+
+
+      <div class="teaching-item">
+        <h3>Fundamentals of Leadership</h3>
+
+        <p>
+          Teaching Assistant, HEC Paris
+        </p>
+
+        <p class="small">
+          Executive MBA · 2022
+        </p>
+      </div>
+
+
+      <h4>Book</h4>
+
+      <div class="teaching-item">
+
+        <h3>
+          <em>CLARITY:
+          Leading with Purpose for Sustained Performance</em>
+        </h3>
+
+        <p>
+          Rodolphe Durand and Harrison John Munro-Clark
+        </p>
+
+        <p class="small">
+          Forthcoming, Oxford University Press
+        </p>
+
+        <p>
+          <a
+            href="https://global.oup.com/academic/product/clarity-9780197861813"
+            target="_blank"
+            rel="noopener"
+          >
+            Oxford University Press
+          </a>
+        </p>
+
+      </div>
+
+
+      <h4>Teaching Cases</h4>
+
+      <div class="teaching-item">
+
+        <h3>Amazon's Rekognition Dilemma</h3>
+
+        <p>
+          Rodolphe Durand and Harrison John Munro-Clark
+        </p>
+
+        <p class="small">
+          Published by HEC Paris and distributed by
+          Harvard Business Publishing Education and The Case Centre
+        </p>
+
+        <p>
+          <a
+            href="https://store.hbr.org/product/amazon-s-rekognition-dilemma/HEP095"
+            target="_blank"
+            rel="noopener"
+          >
+            Case
+          </a>
+        </p>
+
+      </div>
+
+
+      <div class="teaching-item">
+
+        <h3>
+          Governance and Corporate Purpose at Odéon Pharma
+        </h3>
+
+        <p>
+          Rodolphe Durand and Harrison John Munro-Clark
+        </p>
+
+        <p class="small">
+          Published by the HEC Paris Purpose Center
+        </p>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <footer>
+    Harrison Munro-Clark · Updated August 2026
+  </footer>
+
 </body>
 </html>
