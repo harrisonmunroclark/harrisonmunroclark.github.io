@@ -17,10 +17,10 @@
     :root {
       --text: #242424;
       --muted: #666666;
-      --navy: #17365d;
+      --navy: #0b2d52;
       --action: #cf6666;
       --border: #e7e7e7;
-      --page-width: 860px;
+      --page-width: 900px;
     }
 
     * {
@@ -48,6 +48,7 @@
       line-height: 1.65;
       font-weight: 400;
     }
+
 
     /* =========================================
        NAVIGATION
@@ -85,6 +86,7 @@
       text-decoration: underline;
     }
 
+
     /* =========================================
        GENERAL LAYOUT
     ========================================= */
@@ -108,15 +110,6 @@
       margin-top: 0;
     }
 
-    h1 {
-      margin-bottom: 4px;
-
-      font-size: 2rem;
-      line-height: 1.2;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-    }
-
     h2 {
       margin-bottom: 38px;
 
@@ -135,21 +128,49 @@
       font-weight: 600;
     }
 
+
     /* =========================================
        ABOUT
     ========================================= */
 
     #about {
-      padding-top: 82px;
+      padding-top: 72px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 70px;
+      align-items: start;
+    }
+
+    .profile-column {
+      width: 220px;
+    }
+
+    .headshot {
+      display: block;
+
+      width: 220px;
+      height: 220px;
+
+      object-fit: cover;
+      object-position: center 55%;
+
+      border-radius: 5px;
+    }
+
+    .profile-name {
+      margin: 18px 0 5px;
+
+      font-size: 1.42rem;
+      line-height: 1.25;
+      font-weight: 600;
     }
 
     .cv-link {
-      display: inline-block;
-
-      margin-bottom: 32px;
-
       color: var(--action);
-      font-size: 0.96rem;
+      font-size: 0.97rem;
       font-weight: 600;
       text-decoration: none;
     }
@@ -159,17 +180,18 @@
     }
 
     .bio {
-      width: 100%;
+      padding-top: 4px;
       font-size: 1.05rem;
     }
 
     .bio p {
-      margin-bottom: 18px;
+      margin-bottom: 28px;
 
       text-align: justify;
       text-justify: inter-word;
       hyphens: auto;
     }
+
 
     /* =========================================
        PAPERS
@@ -210,6 +232,7 @@
       color: var(--muted);
       font-size: 0.94rem;
     }
+
 
     /* =========================================
        PAPER ACTIONS
@@ -252,6 +275,7 @@
       color: #777777;
     }
 
+
     /* =========================================
        ABSTRACTS
     ========================================= */
@@ -273,6 +297,7 @@
       text-justify: inter-word;
       hyphens: auto;
     }
+
 
     /* =========================================
        TEACHING
@@ -318,6 +343,7 @@
       text-decoration: underline;
     }
 
+
     /* =========================================
        FOOTER
     ========================================= */
@@ -332,14 +358,15 @@
       font-size: 0.84rem;
     }
 
+
     /* =========================================
        MOBILE
     ========================================= */
 
-    @media (max-width: 650px) {
+    @media (max-width: 700px) {
 
       nav {
-        gap: 27px;
+        gap: 28px;
         padding: 18px 0;
       }
 
@@ -348,11 +375,35 @@
       }
 
       #about {
-        padding-top: 58px;
+        padding-top: 52px;
       }
 
-      h1 {
-        font-size: 1.8rem;
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 38px;
+      }
+
+      .profile-column {
+        width: 100%;
+      }
+
+      .headshot {
+        width: 190px;
+        height: 190px;
+      }
+
+      .profile-name {
+        font-size: 1.35rem;
+      }
+
+      .bio {
+        padding-top: 0;
+      }
+
+      .bio p,
+      .abstract-text {
+        text-align: left;
+        hyphens: none;
       }
 
       h2 {
@@ -363,12 +414,6 @@
         margin-top: 40px;
       }
 
-      .bio p,
-      .abstract-text {
-        text-align: left;
-        hyphens: none;
-      }
-
     }
 
   </style>
@@ -376,6 +421,7 @@
 
 
 <body>
+
 
   <!-- =========================================
        NAVIGATION
@@ -404,33 +450,55 @@
 
   <main>
 
+
     <!-- =========================================
          ABOUT
     ========================================== -->
 
     <section id="about">
 
-      <h1>
-        Harrison Munro-Clark
-      </h1>
+      <div class="about-grid">
 
-      <a
-        class="cv-link"
-        href="cv.pdf"
-        target="_blank"
-      >
-        CV
-      </a>
 
-      <div class="bio">
+        <!-- LEFT COLUMN -->
 
-        <p>
-          I am a PhD candidate in Strategic Management at HEC Paris and am on the 2026–27 academic job market.
-        </p>
+        <div class="profile-column">
 
-        <p>
-          My research focuses on questions in corporate strategy, particularly the roles and functions of corporate parents and their implications for parenting advantage, corporate purpose, and the managerial theory of the firm.
-        </p>
+          <img
+            class="headshot"
+            src="headshot.jpg"
+            alt="Harrison Munro-Clark"
+          >
+
+          <div class="profile-name">
+            Harrison Munro-Clark
+          </div>
+
+          <a
+            class="cv-link"
+            href="cv.pdf"
+            target="_blank"
+            rel="noopener"
+          >
+            CV
+          </a>
+
+        </div>
+
+
+        <!-- RIGHT COLUMN -->
+
+        <div class="bio">
+
+          <p>
+            I am a PhD candidate in Strategic Management at HEC Paris and am on the 2026–27 academic job market.
+          </p>
+
+          <p>
+            My research focuses on core questions in corporate strategy, particularly how and under what conditions corporate parents add value to the subsidiaries they own. Methodologically, I use both computational models and large-scale empirical datasets. Theoretically, I am interested in conceptualizing organizations in terms of the functions managers perform.
+          </p>
+
+        </div>
 
       </div>
 
@@ -478,10 +546,7 @@
 
           <button
             class="abstract-button"
-            onclick="toggleAbstract(
-              'common-purpose-abstract',
-              this
-            )"
+            onclick="toggleAbstract('common-purpose-abstract', this)"
           >
             ▸ Abstract
           </button>
@@ -551,10 +616,7 @@
 
           <button
             class="abstract-button"
-            onclick="toggleAbstract(
-              'jmp-abstract',
-              this
-            )"
+            onclick="toggleAbstract('jmp-abstract', this)"
           >
             ▸ Abstract
           </button>
@@ -807,10 +869,18 @@
   </main>
 
 
+  <!-- =========================================
+       FOOTER
+  ========================================== -->
+
   <footer>
     Harrison Munro-Clark · Updated August 2026
   </footer>
 
+
+  <!-- =========================================
+       ABSTRACT DROPDOWNS
+  ========================================== -->
 
   <script>
 
