@@ -489,6 +489,8 @@
             href="cv.pdf"
             target="_blank"
             rel="noopener"
+            data-goatcounter-click="cv-open"
+            data-goatcounter-title="CV opened"
           >
             CV
           </a>
@@ -569,6 +571,8 @@
             href="https://doi.org/10.1002/smj.70008"
             target="_blank"
             rel="noopener"
+            data-goatcounter-click="common-purpose-paper"
+            data-goatcounter-title="Common Purpose paper clicked"
           >
             Paper
           </a>
@@ -581,6 +585,8 @@
             href="https://www.ft.com/content/b4344217-6a89-4fd4-bf9b-3e06f15f6707"
             target="_blank"
             rel="noopener"
+            data-goatcounter-click="common-purpose-ft"
+            data-goatcounter-title="Common Purpose FT coverage clicked"
           >
             Media Coverage
           </a>
@@ -814,6 +820,8 @@
           href="https://global.oup.com/academic/product/clarity-9780197861813"
           target="_blank"
           rel="noopener"
+          data-goatcounter-click="clarity-book"
+          data-goatcounter-title="CLARITY book clicked"
         >
           Book
         </a>
@@ -851,6 +859,8 @@
           href="https://store.hbr.org/product/amazon-s-rekognition-dilemma/HEP095"
           target="_blank"
           rel="noopener"
+          data-goatcounter-click="amazon-rekognition-case"
+          data-goatcounter-title="Amazon Rekognition teaching case clicked"
         >
           Case
         </a>
@@ -889,10 +899,28 @@
 
 
   <!-- =========================================
-       ABSTRACT DROPDOWNS
+       ABSTRACT DROPDOWNS + EVENT TRACKING
   ========================================== -->
 
   <script>
+
+    function trackEvent(path, title) {
+
+      if (
+        window.goatcounter &&
+        typeof window.goatcounter.count === "function"
+      ) {
+
+        window.goatcounter.count({
+          path: path,
+          title: title,
+          event: true
+        });
+
+      }
+
+    }
+
 
     function toggleAbstract(id, button) {
 
@@ -903,6 +931,27 @@
 
         abstract.hidden = false;
         button.textContent = "▾ Abstract";
+
+
+        /* Track abstract OPEN only */
+
+        if (id === "common-purpose-abstract") {
+
+          trackEvent(
+            "common-purpose-abstract-open",
+            "Common Purpose abstract opened"
+          );
+
+        }
+
+        if (id === "jmp-abstract") {
+
+          trackEvent(
+            "jmp-abstract-open",
+            "Job market paper abstract opened"
+          );
+
+        }
 
       } else {
 
@@ -918,6 +967,16 @@
 
   <!-- =========================================
        GOATCOUNTER ANALYTICS
+       
+       Automatically tracks:
+       - website visits
+       - page views
+       - referrers
+       - visitor location data available to GoatCounter
+       - browser/device information
+       
+       data-goatcounter-click attributes above
+       track specific engagement events.
   ========================================== -->
 
   <script
