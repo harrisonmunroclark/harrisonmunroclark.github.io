@@ -492,6 +492,18 @@
         </p>
 
         <div class="paper-actions">
+          <button
+            type="button"
+            class="abstract-button"
+            aria-expanded="false"
+            aria-controls="common-purpose-abstract"
+            onclick="toggleAbstract('common-purpose-abstract', this)"
+          >
+            ▸ Abstract
+          </button>
+
+          <span class="separator">|</span>
+
           <a
             href="https://doi.org/10.1002/smj.70008"
             target="_blank"
@@ -513,6 +525,24 @@
           >
             Media Coverage
           </a>
+        </div>
+
+        <div id="common-purpose-abstract" class="abstract-text" hidden>
+          What is the most effective way to distribute organizational
+          objectives across managers? While prior work suggests managers
+          should each focus on a single objective, we draw on Barnard's
+          original insights on corporate purpose to identify conditions when
+          managers pursuing the full set of objectives is advantageous. Using
+          a computational model, we find that moderate strategic diversity
+          amongst managers enables practice sharing to generate sufficiently
+          valuable distant search to offset the additional complexity incurred
+          during local search, creating a “common purpose advantage.” The
+          advantage is stronger with fewer objectives, moderate objective
+          correlation, less diversification, and moderate turbulence. Under
+          other conditions, it dissipates or reverses. This work unifies
+          scattered findings on multi-objective firms, contributes to
+          diversification research, and revives interest in the Managerial
+          Theory of the Firm.
         </div>
       </article>
 
@@ -814,6 +844,10 @@
       }
 
       const events = {
+        "common-purpose-abstract": {
+          path: "common-purpose-abstract-open",
+          title: "Common Purpose abstract opened"
+        },
         "jmp-abstract": {
           path: "jmp-abstract-open",
           title: "Job market paper abstract opened"
